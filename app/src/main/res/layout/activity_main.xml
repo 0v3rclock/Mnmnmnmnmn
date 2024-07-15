@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints=""
-        android:hint="Ingrese un número"
+        android:hint="ingrese un numero"
         android:inputType="number"
         android:minHeight="48dp"
         android:textColorHint="#8D6E63"
@@ -27,9 +27,26 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
+        app:layout_constraintVertical_bias="0.25"
+        app:layout_constraintBottom_toTopOf="@id/linearLayout"
         app:layout_constraintTop_toBottomOf="@+id/editText"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+        <Button
+            android:id="@+id/btnoff"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/off"/>
+        <Button
+            android:id="@+id/btnec"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/ec"/>
+    </LinearLayout>
 
     <LinearLayout
         android:id="@+id/linearLayout"
@@ -41,7 +58,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/editText"
-        app:layout_constraintVertical_bias="0.145">
+        app:layout_constraintVertical_bias="0.25">
 
         <Button
             android:id="@+id/n7"
@@ -91,7 +108,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:layout_constraintVertical_bias="0.222">
+        app:layout_constraintVertical_bias="0.15">
 
         <Button
             android:id="@+id/n4"
@@ -137,7 +154,8 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout">
+        app:layout_constraintVertical_bias="0.15"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
 
         <Button
             android:id="@+id/n1"
@@ -183,6 +201,8 @@
         android:layout_height="wrap_content"
         android:layout_marginBottom="68dp"
         android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@id/linearLayout3"
+        app:layout_constraintVertical_bias="0.25"
         app:layout_constraintBottom_toBottomOf="parent"
         tools:layout_editor_absoluteX="0dp">
 

@@ -3,7 +3,7 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
-import com.example.mnmnmnmnmn.R
+
 
 class MainActivity : AppCompatActivity() {
     private lateinit var editText: EditText
@@ -18,6 +18,8 @@ class MainActivity : AppCompatActivity() {
 
         editText = findViewById(R.id.editText)
 
+        val btnoff = findViewById<Button>(R.id.btnoff)
+        val btnec = findViewById<Button>(R.id.btnec)
         val btn0 = findViewById<Button>(R.id.n0)
         val btn1 = findViewById<Button>(R.id.n1)
         val btn2 = findViewById<Button>(R.id.n2)
@@ -34,54 +36,66 @@ class MainActivity : AppCompatActivity() {
         val btnMultiplicar = findViewById<Button>(R.id.Multiplicar)
         val btnDividir = findViewById<Button>(R.id.Dividir)
         val btnIgual = findViewById<Button>(R.id.result)
+            btn0.setOnClickListener { editText.setText(editText.text.toString() + "0") }
+            btn1.setOnClickListener { editText.setText(editText.text.toString() + "1") }
+            btn2.setOnClickListener { editText.setText(editText.text.toString() + "2") }
+            btn3.setOnClickListener { editText.setText(editText.text.toString() + "3") }
+            btn4.setOnClickListener { editText.setText(editText.text.toString() + "4") }
+            btn5.setOnClickListener { editText.setText(editText.text.toString() + "5") }
+            btn6.setOnClickListener { editText.setText(editText.text.toString() + "6") }
+            btn7.setOnClickListener { editText.setText(editText.text.toString() + "7") }
+            btn8.setOnClickListener { editText.setText(editText.text.toString() + "8") }
+            btn9.setOnClickListener { editText.setText(editText.text.toString() + "9") }
+            btnPunto.setOnClickListener { editText.setText(editText.text.toString() + ".") }
 
-        btn0.setOnClickListener { editText.setText(editText.text.toString() + "0") }
-        btn1.setOnClickListener { editText.setText(editText.text.toString() + "1") }
-        btn2.setOnClickListener { editText.setText(editText.text.toString() + "2") }
-        btn3.setOnClickListener { editText.setText(editText.text.toString() + "3") }
-        btn4.setOnClickListener { editText.setText(editText.text.toString() + "4") }
-        btn5.setOnClickListener { editText.setText(editText.text.toString() + "5") }
-        btn6.setOnClickListener { editText.setText(editText.text.toString() + "6") }
-        btn7.setOnClickListener { editText.setText(editText.text.toString() + "7") }
-        btn8.setOnClickListener { editText.setText(editText.text.toString() + "8") }
-        btn9.setOnClickListener { editText.setText(editText.text.toString() + "9") }
-        btnPunto.setOnClickListener { editText.setText(editText.text.toString() + ".") }
 
-        btnSumar.setOnClickListener {
-            num1 = editText.text.toString().toDouble()
-            operador = 1
-            editText.setText("")
-        }
-
-        btnRestar.setOnClickListener {
-            num1 = editText.text.toString().toDouble()
-            operador = 2
-            editText.setText("")
-        }
-
-        btnMultiplicar.setOnClickListener {
-            num1 = editText.text.toString().toDouble()
-            operador = 3
-            editText.setText("")
-        }
-
-        btnDividir.setOnClickListener {
-            num1 = editText.text.toString().toDouble()
-            operador = 4
-            editText.setText("")
-        }
-
-        btnIgual.setOnClickListener {
-            num2 = editText.text.toString().toDouble()
-
-            when (operador) {
-                1 -> resultado = num1 + num2
-                2 -> resultado = num1 - num2
-                3 -> resultado = num1 * num2
-                4 -> resultado = num1 / num2
+            btnoff.setOnClickListener {
+                finish() // Cierra la actividad y sale de la calculadora
             }
 
-            editText.setText(resultado.toString())
+            btnec.setOnClickListener {
+                editText.setText("") // Limpia el campo de texto
+                num1 = 0.0
+                num2 = 0.0
+                resultado = 0.0
+                operador = 0 // Reestablece los valores a cero
+            }
+
+            btnSumar.setOnClickListener {
+                num1 = editText.text.toString().toDouble()
+                operador = 1
+                editText.setText("")
+            }
+
+            btnRestar.setOnClickListener {
+                num1 = editText.text.toString().toDouble()
+                operador = 2
+                editText.setText("")
+            }
+
+            btnMultiplicar.setOnClickListener {
+                num1 = editText.text.toString().toDouble()
+                operador = 3
+                editText.setText("")
+            }
+
+            btnDividir.setOnClickListener {
+                num1 = editText.text.toString().toDouble()
+                operador = 4
+                editText.setText("")
+            }
+
+            btnIgual.setOnClickListener {
+                num2 = editText.text.toString().toDouble()
+
+                when (operador) {
+                    1 -> resultado = num1 + num2
+                    2 -> resultado = num1 - num2
+                    3 -> resultado = num1 * num2
+                    4 -> resultado = num1 / num2
+                }
+
+                editText.setText(resultado.toString())
+            }
         }
     }
-}

@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">Mnmnmnmnmn</string>
+    <string name="ec">ec</string>
+    <string name="off">off</string>
 </resources>
